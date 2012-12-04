@@ -7,6 +7,9 @@ git@github.com:chustar/smasms.git
 	Version: Indigo Service Release 2
 	Build id: 20120216-1857
 
+    1a (if necessary). Install Eclipse DTP (Eclipse update site: http://download.eclipse.org/datatools/updates)
+    1b (if necessary). Install AWS Toolkit (Eclipse update site: http://aws.amazon.com/eclipse)
+
 2. To deploy on Amazon EC2 server: Right click on project -> Run As -> Run on Server -> Amazon AWS Server V7
 	(will need AWS credentials)
 
