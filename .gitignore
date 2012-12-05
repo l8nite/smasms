@@ -8,3 +8,6 @@
 TwitterScraper/bin/*
 .metadata
 .settings
+.classpath
+.project
+Servers
