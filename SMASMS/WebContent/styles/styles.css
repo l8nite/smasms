@@ -40,17 +40,15 @@ input:focus {
     -webkit-box-shadow: 0px 0px 4px #000;
     background: #d2e6f2;
 }
+input[type='text'],input[type='number'],textarea {font-size:16px;}
+
 
 #response {
     border: 1px solid #aaaaaa;
-    width: 500px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
+    width: 100%;
     background: #eeeeee;
     background: -moz-linear-gradient(19% 75% 90deg, #ffffff, #eeeeee);
     background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#eeeeee));
-    margin:50px auto;
-    padding: 20px;
     -moz-box-shadow:0px -5px 550px #0459b7;
     -webkit-box-shadow:0px -5px 550px #0459b7;
 }

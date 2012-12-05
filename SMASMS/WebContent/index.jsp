@@ -16,6 +16,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>SMASMS - Stock Mood Analysis of Social Media Streams</title>
     <link rel="stylesheet" href="styles/styles.css" type="text/css" media="screen">
@@ -42,6 +45,7 @@
     	$('#response').hide();
         $('#tickerform').submit(function(e) {
             e.preventDefault();
+	    $('input#ticker').blur(); // close mobile safari keyboard
 
              $.ajax({type: 'GET',
                      url: 'analyze',
@@ -49,9 +53,9 @@
                          'ticker': $('#ticker').val(),
                      },
                      success: function(json) {
-             			$('#getstarted').fadeOut(function() {
+				window.scrollTo(0, 0);
+             			$('#response').fadeOut(function() {
              				renderJsonResponse(json);
-             				
              			});
              		 },
                      dataType: 'json'});
@@ -85,6 +89,7 @@
     	$('#networks-graph').jqBarGraph({ data: arrayOfData,
     		postfix: '%',
     		height: 250,
+		width: 250,
     		});
     	
     	arrayOfData = new Array(
@@ -96,6 +101,7 @@
     	$('#moods-graph').jqBarGraph({ data: arrayOfData,
     		postfix: '%',
     		height: 250,
+		width: 250,
     		});
     	
     }
@@ -105,19 +111,22 @@
 </head>
 
 <body>
-	<div id="header" style="width: 432px; height: 73px; margin: auto;">
-		<img src="images/smasms.png" alt="SMASMS - Stock Mood Analysis of Social Media Streams" style="width: 432px; height: 73px"/>
+	<div id="header" style="width: 100%; height: 73px; margin: auto;">
+		<img src="images/smasms.png" alt="SMASMS - Stock Mood Analysis of Social Media Streams" style="width: 100%; height: 100%;"/>
 	</div>
-	
-	<div id="getstarted" style="background-image: url(images/getstarted.png); width: 510px; height: 145px; margin: 100px auto 10px auto;">
-		<form id="tickerform">
-			<input type="text" id="ticker" style="position: relative; left: 120px; top: 108px;"/>
-		</form>
+
+        <div id="response">
+            If you see this, something went wrong.
+        </div>
+
+	<div id="getstarted" style="text-align: center; margin-top: 40px;">
+		<span style="font-style: Florence, cursive; font-size: 24pt;">Enter a ticker symbol below.</span>
+		<div style="margin-top: 41px; width: 100%; text-align: center;">
+			<form id="tickerform" style="margin-left: auto; margin-right: auto;">
+				<input type="text" id="ticker"/>
+			</form>
+		</div>
 	</div>
-	
-    <div id="response">
-    	If you see this, something went wrong.
-    </div>
 </body>
 
 </html>
